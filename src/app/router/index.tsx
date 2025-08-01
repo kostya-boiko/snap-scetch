@@ -6,6 +6,7 @@ import TrainingPage from "@/pages/TrainingPage";
 import { HashRouter, Route, Routes } from "react-router";
 import Layout from "../layout";
 import { COMMON_ROUTES_NAMES } from "./commonRoutesNames";
+import AuthPage from "@/pages/AuthPage";
 
 const AppRouter = () => {
   return (
@@ -26,6 +27,7 @@ const AppRouter = () => {
             element={<ContactsPage />}
           />
           <Route path={COMMON_ROUTES_NAMES.About} element={<AboutPage />} />
+          <Route path={COMMON_ROUTES_NAMES.Auth} element={<AuthPage />} />
         </Route>
       </Routes>
     </HashRouter>

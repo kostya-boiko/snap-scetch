@@ -5,4 +5,5 @@ export const enum COMMON_ROUTES_NAMES {
   Profile = '/profile',
   About = '/about',
   Contacts = '/contacts',
+  Auth = '/auth',
 }
