@@ -48,7 +48,7 @@ const AuthForm: FC = () => {
   };
 
   return (
-    <div className="flex items-center justify-center py-4">
+    <div className="flex items-center justify-center">
       <div className="w-full max-w-md bg-main-red text-main-beige p-10 rounded-3xl shadow-md">
         <div className="text-center mb-8">
           <h1 className="text-3xl font-bold mb-3">{mode === "login" ? "Sign In" : "Sign Up"}</h1>
@@ -89,6 +89,7 @@ const AuthForm: FC = () => {
             type={showPassword ? "text" : "password"}
             icon={
               <span
+                className="cursor-pointer"
                 onClick={() => setShowPassword(!showPassword)}
                 aria-label={showPassword ? "Сховати пароль" : "Показати пароль"}
               >

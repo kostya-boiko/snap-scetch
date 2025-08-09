@@ -6,11 +6,15 @@ import { useAuthStore } from "@/features/auth/store/authStore";
 import { useState } from "react";
 import { COMMON_ROUTES_NAMES } from "../router/commonRoutesNames";
 import { menu } from "./menu";
+import Modal from "@/components/ui/Modal";
+import { useNavigate } from "react-router";
+import AuthForm from "@/features/auth/components/AuthForm";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const authSession = useAuthStore((state) => state.authSession);
-
+  const navigate = useNavigate();
   return (
     <header className="relative z-50">
       <div className="wrapper">
@@ -19,9 +23,18 @@ const Header = () => {
           <Navigation data={menu} className="hidden md:flex" />
           <MainButton
             content={authSession ? "Dashboard" : "Get Started"}
-            to={COMMON_ROUTES_NAMES.Auth}
+            action={() => {
+              if (authSession) {
+                // Navigate to dashboard
+                navigate(COMMON_ROUTES_NAMES.Home);
+              } else {
+                setIsModalOpen(true);
+              }
+            }}
+            // to={COMMON_ROUTES_NAMES.Auth}
             className="hidden md:block"
           />
+          <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} children={<AuthForm />} />
           <BurgerMenu isOpen={isOpen} setIsOpen={setIsOpen} data={menu} />
         </div>
       </div>
