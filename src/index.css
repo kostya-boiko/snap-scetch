@@ -69,6 +69,13 @@ body {
   height: 40px;
 }
 
+.modal-appear {
+  animation: appear 0.3s ease-out forwards;
+}
+
+.modal-disappear {
+  animation: disappear 0.3s ease-in forwards;
+}
 
 @media (min-width: 768px) {
   .icon-lg {
@@ -81,4 +88,15 @@ body {
     width: 60px;
     height: 60px;
   }
+}
+
+
+@keyframes appear {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes disappear {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
 }
