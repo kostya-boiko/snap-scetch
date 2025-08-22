@@ -1,5 +1,5 @@
+import CustomInput from "@/components/ui/CustomInput";
 import SimpleSelect from "@/components/ui/Select/SimpleSelect";
-import SimpleInput from "@/components/ui/SimpleInput";
 import SimpleRadioInput from "@/components/ui/SimpleRadioInput/SimpleRadioInput";
 import { useEffect, useState } from "react";
 import { useTimerStore } from "../store/timerStore";
@@ -76,8 +76,8 @@ const SelectTimeInterval = () => {
       {selectInterval === 5 && (
         <>
           <div className="flex flex-col-reverse sm:flex-row gap-3 items-center mt-4">
-            <SimpleInput
-              autofocus={true}
+            <CustomInput
+              autoFocus
               type="number"
               value={time}
               onChange={(e) => {

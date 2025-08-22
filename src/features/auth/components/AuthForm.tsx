@@ -1,8 +1,8 @@
+import MainButton from "@/components/ui/Buttons/MainButton";
+import CustomInput from "@/components/ui/CustomInput";
 import { useState, type FC, type FormEvent } from "react";
 import { useNavigate } from "react-router";
 import { SignUpData } from "../../home/types";
-import Input from "@/components/ui/Input/Input";
-import MainButton from "@/components/ui/Buttons/MainButton";
 import { createUser, signIn } from "../API/authApi";
 
 type AuthMode = "login" | "register";
@@ -59,7 +59,7 @@ const AuthForm: FC = () => {
 
         <form className="space-y-6" onSubmit={handleSubmit}>
           {mode === "register" && (
-            <Input
+            <CustomInput
               value={form.name}
               onChange={handleChange}
               placeholder="Your Name"
@@ -67,9 +67,10 @@ const AuthForm: FC = () => {
               name="name"
               labelText="Username"
               type="text"
+              className="bg-white rounded-xl py-3"
             />
           )}
-          <Input
+          <CustomInput
             value={form.email}
             onChange={handleChange}
             placeholder="you@example.com"
@@ -77,9 +78,10 @@ const AuthForm: FC = () => {
             name="email"
             labelText="Email"
             type="email"
+            className="bg-white rounded-xl py-3"
           />
 
-          <Input
+          <CustomInput
             value={form.password}
             onChange={handleChange}
             placeholder="********"
@@ -87,6 +89,7 @@ const AuthForm: FC = () => {
             name="password"
             labelText="Password"
             type={showPassword ? "text" : "password"}
+            className="bg-white rounded-xl py-3"
             icon={
               <span
                 className="cursor-pointer"

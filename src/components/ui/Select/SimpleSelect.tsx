@@ -1,7 +1,7 @@
 import React, { FC, SetStateAction, useEffect, useRef, useState } from "react";
 import classes from "./select.module.css";
-import SimpleInput from "../SimpleInput";
 import ArrowIcon from "@/app/assets/icons/arrow.svg?react";
+import CustomInput from "../CustomInput";
 
 type Props = {
   data: string[];
@@ -48,7 +48,7 @@ const SimpleSelect: FC<Props> = ({
       ref={dropdownRef}
     >
       <div className="relative">
-        <SimpleInput
+        <CustomInput
           value={data[activeElementIndex || 0]}
           readOnly
           onClick={() => {
